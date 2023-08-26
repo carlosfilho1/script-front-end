@@ -1,0 +1,37 @@
+.searchbar{
+    margin-bottom: auto;
+    margin-top: auto;
+    height: 40px;
+    background-color: #353b48;
+    border-radius: 180px;
+    }
+
+    .search_input{
+    color: white;
+    border: 0;
+    outline: 0;
+    background: none;
+    width: 120px;
+    caret-color:transparent;
+    line-height: 3px;
+    transition: width 1s linear;
+    }
+
+    .searchbar:hover > .search_input{
+    padding: 0px;
+    width: 300px;
+    caret-color:green;
+    transition: width 1s linear;
+    }
+
+
+.bi-search{
+    height: 10px;
+    width: 10px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration:none;
+}
+
