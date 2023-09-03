@@ -35,3 +35,7 @@
     text-decoration:none;
 }
 
+.col-1{
+    flex: 0 0 auto;
+    width: 6.33333333%;
+}
