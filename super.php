@@ -1,10 +1,9 @@
 <?php
 // Conexão com o banco de dados (substitua com suas configurações)
-//$servername = "127.0.0.1:3306";
 $servername = "localhost";
 $username = "root";
 $password = "root";
-$dbname = "webdb";
+$dbname = "portaldb";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -13,10 +12,9 @@ if ($conn->connect_error) {
     die("Erro na conexão com o banco de dados: " . $conn->connect_error);
 } else {
     echo "Conexão bem-sucedida!";
-    // Aqui você pode continuar com suas operações no banco de dados
 }
 
-// Consulta SQL para selecionar os dados da tabela "estoque"
+// Consulta SQL
 $sql = "SELECT * FROM estoque";
 $result = $conn->query($sql);
 
@@ -33,6 +31,5 @@ if ($result->num_rows > 0) {
 
 $conn->close();
 
-// Incluir o arquivo HTML para exibir os dados
 include 'estoque.html';
 ?>
