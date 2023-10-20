@@ -1,87 +1,42 @@
-<?php include("super.php");?>
-
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-    <title>Estoque</title>
-</head>
-
-<body>
-
-    <div class="container">
-        <h2>Estoque</h2>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>ID do Produto</th>
-                    <th>Descrição do Produto</th>
-                    <th>Categoria</th>
-                    <th>Quantidade em Estoque</th>
-                    <th>Preço Unitário</th>
-                    <th>Valor Total em Estoque</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($estoqueData as $row) { ?>
-                <tr>
-                    <td>
-                        <?php echo $row["id_produto"]; ?>
-                    </td>
-                    <td>
-                        <?php echo $row["descricao_produto"]; ?>
-                    </td>
-                    <td>
-                        <?php echo $row["categoria"]; ?>
-                    </td>
-                    <td>
-                        <?php echo $row["quantidade_em_estoque"]; ?>
-                    </td>
-                    <td>
-                        <?php echo "R$ " . number_format($row["preco_unitario"], 2, ",", "."); ?>
-                    </td>
-                    <td>
-                        <?php echo "R$ " . number_format($row["valor_total"], 2, ",", "."); ?>
-                    </td>
-                </tr>
-                <?php } ?>
+<div class="pb-5">
+    <h2>Estoque</h2>
+    <form id="product-form" method="post" action="./estoqueADD.php" class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="data">Data:</label>
+                <input type="date" id="data" name="data" placeholder="DD/MM/AAAA" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="notaFiscal">Nº Nota Fiscal:</label>
+                <input type="number" id="notaFiscal" name="notaFiscal" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="descricao">Descrição do Produto:</label>
+                <input type="text" id="descricao" name="descricao" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="categoria">Categoria:</label>
+                <input type="text" id="categoria" name="categoria" class="form-control" required>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="codigoProduto">Codigo do Produto:</label>
+                <input type="number" id="codigoProduto" name="codigoProduto" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="quantidade">Quantidade em Estoque:</label>
+                <input type="number" id="quantidade" name="quantidade" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="preco">Preço Unitário:</label>
+                <input type="text" id="preco" name="preco" class="form-control" required step="0.01">
+            </div>
+        </div>
+        <div class="col-md-12 mt-2">
+            <button type="submit" class="btn btn-primary p-2">Adicionar Produto</button>
+        </div>
+    </form>
+</div>
 
 
-                <!-- <tr>
-                    <td>001</td>
-                    <td>Produto A</td>
-                    <td>Categoria 1</td>
-                    <td>100</td>
-                    <td>R$ 90.00</td>
-                    <td class="valor-total"></td>
-                </tr>
-                <tr>
-                    <td>002</td>
-                    <td>Produto B</td>
-                    <td>Categoria 2</td>
-                    <td>75</td>
-                    <td>R$ 15</td>
-                    <td class="valor-total"></td>
-                </tr>
-                <tr>
-                    <td>003</td>
-                    <td>Produto C</td>
-                    <td>Categoria 1</td>
-                    <td>52</td>
-                    <td>R$ 20.12</td>
-                    <td class="valor-total"></td>
-                </tr> -->
-
-            </tbody>
-        </table>
-
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
-        <script src="calc.js"></script>
-
-</body>
-
-</html>
