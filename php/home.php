@@ -5,64 +5,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-    <title>Estoque</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Home</title>
 </head>
 
 <body>
-    <div class="container-fluid row vh-100">
-        <div class="col-md-2" style="background-color: turquoise;">
+    <div class="row container-fluid vh-100">
+        <div class="col-md-2 d-none d-sm-none d-md-block ">
             <?php
-                include './menu.php';
+            include './menu.php';
             ?>
         </div>
+
         <div class="col-md-10">
-            <div class="row p-3" style="background-color: blue;"></div>
+            <div class="row p-3" style="background-color: blue;">
 
             <?php
-
-            include './estoqueADD.php';
-            include './estoque.php';
-
+            include './offcanvas.php';
             ?>
 
-            <div class="">
-                <table class="table table-light table-hover">
-                    <thead>
-                        <?php
-                        include './cabecalho.php'
-                        ?>
-
-                    </thead>
-                    <tbody>
-                        <?php
-                        foreach ($estoqueData as $row) {
-                            $dataFormatada = date("d-m-Y", strtotime($row["data"])); //  <!-- Formatação da data padrão BR -->
-                        ?>
-                            <tr>
-                                <td><?php echo $row["id_produto"]; ?></td>
-                                <td><?php echo $dataFormatada; ?></td>
-                                <td><?php echo $row["nota_fiscal"]; ?></td>
-                                <td><?php echo $row["descricao_produto"]; ?></td>
-                                <td><?php echo $row["codigo_produto"]; ?></td>
-                                <td><?php echo $row["categoria"]; ?></td>
-                                <td><?php echo $row["quantidade_em_estoque"]; ?></td>
-                                <td><?php echo "R$ " . number_format($row["preco_unitario"], 2, ",", "."); ?></td>
-                                <td><?php echo "R$ " . number_format($row["valor_total"], 2, ",", "."); ?></td>
-                            </tr>
-                        <?php };
-                        ?>
-
-                    </tbody>
-                </table>
             </div>
 
-
+            <h1>Seja Bem Vindo ao Sistema</h1>
         </div>
     </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
-    <script src="calc.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="../js/calc.js"></script>
 </body>
 
 </html>
