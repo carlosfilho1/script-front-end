@@ -1,34 +1,7 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <title>Estoque</title>
-</head>
-
-<body>
-    <div class="row container-fluid vh-100">
-        <div class="col-md-2 d-none d-md-block d-lg-block">
             <?php
-            include './menu.php';
-            ?>
-        </div>
-
-        <div class="col-md-10">
-            <div class="row p-3" style="background-color: blue;">
-                <?php
-                include './offcanvas.php';
-                ?>
-            </div>
-
-            <?php
-
+            include './modelBody.php';
             // Ler o conteúdo do arquivo "estoque.html"
-            $htmlContent = file_get_contents('../html/estoque.html');
+            //$htmlContent = file_get_contents('../html/estoque.html');
 
             // Inserir dinamicamente os valores no conteúdo HTML
             // $htmlContent = str_replace('{{DATA}}', $estoqueData[0]["data"], $htmlContent);
@@ -41,9 +14,8 @@
             // $htmlContent = str_replace('{{VALOR_TOTAL}}', "R$ " . number_format($estoqueData[0]["valor_total"], 2, ",", "."), $htmlContent);
 
             // Exibir o conteúdo HTML
-            echo $htmlContent;
+            //echo $htmlContent;
 
-            include './estoqueADD.php';
             ?>
 
             <div class="">
@@ -56,6 +28,8 @@
                     </thead>
                     <tbody>
                         <?php
+                        include './conection.php';
+
                         foreach ($estoqueData as $row) {
                             $dataFormatada = date("d-m-Y", strtotime($row["data"])); //  <!-- Formatação da data padrão BR -->
                         ?>
@@ -76,11 +50,7 @@
                     </tbody>
                 </table>
             </div>
-        </div>
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="../js/calc.js"></script>
-</body>
-
-</html>
+            
+            <?php
+            include './modelFooter.php'
+            ?>
