@@ -14,15 +14,16 @@
     <div class="row container-fluid vh-100">
         <div class="col-md-2 d-none d-sm-none d-md-block ">
             <?php
-            include './menu.php';
+            $htmlContent = file_get_contents('../html/menu.html');
+            echo $htmlContent;
+
             ?>
         </div>
 
         <div class="col-md-10">
             <div class="row p-3" style="background-color: blue;">
-
-            <?php
-            include './offcanvas.php';
-            ?>
+                <?php
+                $htmlContent01 = file_get_contents('../html/offcanvas.html');
+                echo $htmlContent01;
+                ?>
             </div>
-            

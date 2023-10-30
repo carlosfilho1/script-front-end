@@ -1,0 +1,89 @@
+<div class="pb-5">
+    <h2>Orçamento de Produtos/Serviços</h2>
+    <form id="product-form" method="post" action="../php/form_orcamento.php" class="row">
+
+        <div class="col-md">
+            <div class="form-group">
+                <label for="num_orcamento">Nº do Orçamento: </label>
+                <input type="number" id="num_orcamento" name="num_orcamento" class="form-control"
+                    placeholder="Nº do orçamento" disabled>
+            </div>
+            <div class="form-group">
+                <label for="razao_social">Razão Social:</label>
+                <input type="text" id="razao_social" name="razao_social"
+                    placeholder="Informe a razão social ou pessoa fisica." class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="cnpj_num">CNPJ:</label>
+                <input type="number" id="cnpj_num" name="cnpj_num" placeholder="Informe apenas numeros." required
+                    class="form-control">
+            </div>
+        </div>
+
+        <div class="col-md">
+            <div class="form-group">
+                <label for="endereco_txt">Endereço:</label>
+                <input type="text" id="endereco_txt" name="endereco_txt" placeholder="Informe endereço."
+                    class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="Email_txt">Email:</label>
+                <input type="email" id="Email_txt" name="Email_txt" placeholder="empresa@email.com.br"
+                    class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="data_txt">Data:</label>
+                <input type="date" id="data_txt" name="data_txt" placeholder="data do orçamento" class="form-control"
+                    required>
+            </div>
+        </div>
+
+        <div class="col-md">
+
+            <div class="form-group">
+                <label for="desconto_txt">Desconto:</label>
+                <input type="number" id="desconto_txt" name="desconto_txt"
+                    placeholder="Informe apenas numero para desconto." class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="validade_num">Validade:</label>
+                <input type="number" id="validade_num" name="validade_num" placeholder="Validade do orçamento."
+                    class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="telefone_tel">Telefone:</label>
+                <input type="number" id="telefone_tel" name="telefone_tel" placeholder="Informe apenas numeros."
+                    class="form-control" required>
+            </div>
+        </div>
+
+
+        <div class="row-gap-3 mt-4">
+            <table class="table" id="editableTable">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Descrição do Produto</th>
+                        <th>Quant.</th>
+                        <th>Preço Unitário</th>
+                        <th>Preço Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td contenteditable="false" class="disabled">1</td>
+                        <td contenteditable="true"></td>
+                        <td contenteditable="true"></td>
+                        <td contenteditable="true"></td>
+                        <td contenteditable="true"></td>
+                        <td><button class="deleteRow">Excluir</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md mt-4 d-flex flex-row-reverse">
+            <button id="addRowButton">Adicionar Linha</button>
+            <button type="submit" class="btn btn-primary p-3">Adicionar</button>
+        </div>
+    </form>
+</div>

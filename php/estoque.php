@@ -17,20 +17,49 @@
             //echo $htmlContent;
 
             ?>
-
             <div class="">
                 <table class="table table-light table-hover">
                     <thead>
-                        <?php
-                        include './cabecalho.php'
-                        ?>
-
+                        <tr>
+                            <th>ID do Produto</th>
+                            <th>Data</th>
+                            <th>Nº Nota Fiscal</th>
+                            <th>Descrição do Produto</th>
+                            <th>Codigo do Produto</th>
+                            <th>Categoria</th>
+                            <th>Quantidade em Estoque</th>
+                            <th>Preço Unitário</th>
+                            <th>Valor Total em Estoque</th>
+                        </tr>
                     </thead>
                     <tbody>
                         <?php
                         include './conection.php';
 
-                        foreach ($estoqueData as $row) {
+                        $conn = new mysqli($servername, $username, $password, $dbname);
+                        $sql = "SELECT * FROM estoque";
+                        $result = $conn->query($sql);
+
+                        $estoqueData = array();
+
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                // Calcular o valor total em estoque
+                                $valorTotal = $row["quantidade_em_estoque"] * $row["preco_unitario"];
+                                $row["valor_total"] = $valorTotal;
+                                $estoqueData[] = $row;
+                            }
+                        };
+
+                        $itemsPorPagina = 12;
+                        $paginaAtual = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
+
+                        $inicio = ($paginaAtual - 1) * $itemsPorPagina;
+                        $fim = $paginaAtual * $itemsPorPagina;
+                        for ($i = $inicio; $i < $fim && $i < count($estoqueData); $i++) {
+                            $row = $estoqueData[$i];
+
+                            //foreach ($estoqueData as $row) {
                             $dataFormatada = date("d-m-Y", strtotime($row["data"])); //  <!-- Formatação da data padrão BR -->
                         ?>
                             <tr>
@@ -44,13 +73,34 @@
                                 <td><?php echo "R$ " . number_format($row["preco_unitario"], 2, ",", "."); ?></td>
                                 <td><?php echo "R$ " . number_format($row["valor_total"], 2, ",", "."); ?></td>
                             </tr>
-                        <?php };
-                        ?>
+                        <?php }; //}
 
+                        ?>
                     </tbody>
                 </table>
             </div>
-            
+
+            <nav aria-label="...">
+                <ul class="pagination">
+                    <?php
+                    $totalPaginas = ceil(count($estoqueData) / $itemsPorPagina);
+
+                    if ($paginaAtual > 1) {
+                        echo '<li class="page-item"><a class="page-link" href="?pagina=' . ($paginaAtual - 1) . '">Previous</a></li>';
+                    }
+
+                    for ($i = 1; $i <= $totalPaginas; $i++) {
+                        $classeAtiva = $paginaAtual == $i ? 'active' : '';
+                        echo '<li class="page-item ' . $classeAtiva . '"><a class="page-link" href="?pagina=' . $i . '">' . $i . '</a></li>';
+                    }
+
+                    if ($paginaAtual < $totalPaginas) {
+                        echo '<li class="page-item"><a class="page-link" href="?pagina=' . ($paginaAtual + 1) . '">Next</a></li>';
+                    }
+                    ?>
+                </ul>
+            </nav>
+
             <?php
             include './modelFooter.php'
             ?>

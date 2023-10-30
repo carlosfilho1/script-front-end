@@ -1,0 +1,121 @@
+<div class="pb-5">
+    <h2>Contas a Pagar</h2>
+    <form id="product-form" method="post" action="../php/form_contasPagar.php" class="row">
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="empresa1">Empresa:</label>
+                <input type="text" id="empresa1" name="empresa1" placeholder="Informe a razão social ou pessoa fisica"
+                    class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="classificacao1">Classificação:</label>
+                <input type="text" id="classificacao1" name="classificacao1" placeholder="(Opcional)"
+                    class="form-control">
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="dataCompetencia1">Data da Competência:</label>
+                <input type="date" id="dataCompetencia1" name="dataCompetencia1" placeholder="DD/MM/AAAA"
+                    class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="dataVencimento1">Data do vencimento:</label>
+                <input type="date" id="dataVencimento1" name="dataVencimento1" placeholder="DD/MM/AAAA"
+                    class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="valorPagar1">Valor a pagar:</label>
+                <input type="number" id="valorPagar1" name="valorPagar1" class="form-control" placeholder="R$ 0.00"
+                    step="0.01" min="0">
+            </div>
+
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Conta Bancaria:</label>
+                <select id="contaBancaria1" name="contaBancaria1" class="form-control" required>
+                    <option value="" disabled selected>Selecione o banco</option>
+                    <option value="Banco do Brasil">Banco do Brasil</option>
+                    <option value="Itau Unibanco">Itaú Unibanco</option>
+                    <option value="Bradesco">Bradesco</option>
+                    <option value="Caixa Economica Federal">Caixa Econômica Federal</option>
+                    <option value="Santander">Santander</option>
+                    <option value="Banco Safra">Banco Safra</option>
+                    <option value="Banco Votorantim">Banco Votorantim</option>
+                    <option value="Banco Original">Banco Original</option>
+                    <option value="Banco Inter">Banco Inter</option>
+                    <option value="Banco C6">Banco C6</option>
+                    <option value="Banco Modal">Banco Modal</option>
+                    <option value="Nubank">Nubank</option>
+                    <option value="Banco BMG">Banco BMG</option>
+                    <option value="Banco Sicredi">Banco Sicredi</option>
+                    <option value="Banco Pine">Banco Pine</option>
+                    <option value="Banco Daycoval">Banco Daycoval</option>
+                    <option value="Banco Fibra">Banco Fibra</option>
+                    <option value="Banco Renner">Banco Renner</option>
+                    <option value="Banco ABC Brasil">Banco ABC Brasil</option>
+                    <option value="Banco Sofisa">Banco Sofisa</option>
+                    <option value="Banco Topazio">Banco Topázio</option>
+                    <option value="Banco Maxima">Banco Maxima</option>
+                </select>
+
+            </div>
+            <div class="form-group">
+                <label for="dataAgendado1">Data do Agendamento:</label>
+                <input type="date" id="dataAgendado1" name="dataAgendado1" placeholder="(Opcional)"
+                    class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="valorAgendado1">Valor a Pagar Agendado:</label>
+                <input type="number" id="valorAgendado1" name="valorAgendado1" class="form-control"
+                    placeholder="R$ 0.00" min="0" required>
+            </div>
+            <div class="form-group">
+                <label for="pessoa1">Pessoa:</label>
+                <input type="text" id="pessoa1" name="pessoa1" placeholder="(Opcional)" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="descricaoLancamento1">Descrição do Lançamento:</label>
+                <input type="text" id="descricaoLancamento1" name="descricaoLancamento1" placeholder="(Opcional)"
+                    class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="comentarios1">Comentários:</label>
+                <input type="text" id="comentarios1" name="comentarios1" placeholder="(Opcional)" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Status:</label>
+                <select id="status1" name="status1" class="form-control" required>
+                    <option value="" disabled selected>Selecione o status</option>
+                    <option value="A Pagar">A Pagar</option>
+                    <option value="Atrasada">Atrasada</option>
+                    <option value="Em Processamento">Em Processamento</option>
+                    <option value="Pago">Pago</option>
+                    <option value="Parcialmente Pago">Parcialmente Pago</option>
+                    <option value="Em Negociação">Em Negociação</option>
+                    <option value="Cancelada">Cancelada</option>
+                    <option value="Em Espera">Em Espera</option>
+                    <option value="Reembolso">Reembolso</option>
+                    <option value="Cobranca Juridica">Cobrança Jurídica</option>
+                    <option value="Em Revisão">Em Revisão</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="valorPago1">Valor Pago:</label>
+                <input type="number" id="valorPago1" name="valorPago1" class="form-control" placeholder="R$ 0.00"
+                    min="0" required>
+            </div>
+            <div class="form-group">
+                <label for="saldoPagar1">Saldo a Pagar:</label>
+                <input type="number" id="saldoPagar1" name="saldoPagar1" class="form-control" placeholder="R$ 0.00"
+                    min="0" required>
+            </div>
+        </div>
+        <div class="col-md-12 mt-4 d-flex flex-row-reverse">
+            <button type="submit" class="btn btn-primary p-3">Adicionar</button>
+        </div>
+    </form>
+</div>
