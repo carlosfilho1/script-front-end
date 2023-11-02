@@ -1,9 +1,9 @@
 <?php
 
+session_start();
+
 $htmlContent = file_get_contents('../html/index.html');
 echo $htmlContent;
-
-session_start();
 
 include './conection.php';
 
@@ -18,7 +18,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     $password = $_POST['password'];
 
     // Consulta para verificar as credenciais
-    $query = "SELECT id, nome, senhaCriptografada FROM access WHERE email = '$email'";
+    $query = "SELECT id, nome, email, senhaCriptografada FROM acessos WHERE email = '$email'";
     $result = mysqli_query($conn, $query);
 
     if ($result && mysqli_num_rows($result) > 0) {
@@ -31,14 +31,21 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
             $_SESSION['user_name'] = $row['nome'];
             header("Location: home.php");
         } else {
-            echo "Credenciais inválida.";
+            $login_error = "E-mail ou senha inválidos.";
+            header("Location: ./");
+            echo '<div class="error-message">' . $_SESSION['login_error'] . '</div>';
+
+            exit(); // Encerra o script após redirecionamento
         }
     } else {
-        echo "Credenciais inválidas.";
+        $login_error = "E-mail ou senha inválidos.";
+        header("Location: ./");
+        echo '<div class="error-message">' . $_SESSION['login_error'] . '</div>';
+        exit();
     }
 }
 
 mysqli_close($conn);
 
-
 ?>
+

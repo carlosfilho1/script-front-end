@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 include './modelBody.php';
 ?>
 <h1>Seja Bem Vindo ao Sistema</h1>
