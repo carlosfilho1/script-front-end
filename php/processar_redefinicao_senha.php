@@ -2,7 +2,7 @@
 include './conection.php';
 include './modelBody.php';
 
-$htmlContent = file_get_contents('../html/criarAcesso.html');
+$htmlContent = file_get_contents('../html/alterarSenha.html');
 echo $htmlContent;
 
 $conn = new mysqli($servername, $username, $password, $dbname);
